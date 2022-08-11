@@ -2,12 +2,17 @@ import IRegistrationType from "../types/IRegistrationType";
 import IReportsDataType from "../types/IReportsDataType";
 
 class APIService {
-  putRegistration(data: IRegistrationType) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(true);
-      }, 2000);
+  async putRegistration(data: IRegistrationType) {
+    const response = await fetch("https://invygoput.free.beeceptor.com", {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
     });
+    const resp = await response.json();
+    return resp;
   }
 
   getRegistrations(): Promise<IRegistrationType[]> {

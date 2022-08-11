@@ -1,9 +1,12 @@
 import { useCallback, useState } from "react";
-import { IS_MOBILE } from "../../utils/AppConstants";
+import { useNavigate } from "react-router-dom";
+import AppRoutes from "../../routes/AppRoutes";
+import { IS_MOBILE, NAVIGATION_ROUTE_PATHS } from "../../utils/AppConstants";
 import "./AppNavigation.css";
 
 export default function AppNavigation() {
   const [isLeftBarOpen, setIsLeftBarOpen] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const handleLeftBarToggle = useCallback(() => {
     setIsLeftBarOpen((value) => {
@@ -25,31 +28,39 @@ export default function AppNavigation() {
         )}
         Meetup RSVP App
       </div>
-      {IS_MOBILE ? (
-        <div
-          className={`app-leftbar-mobile ${
-            isLeftBarOpen ? "leftbar-show" : "leftbar-hidden"
-          }`}
-        >
-          <div className="app-leftbar-list">
-            <div className="app-leftbar-item">Registration Form</div>
-            <div className="app-leftbar-item">Admin Dashboard</div>
-            <div className="app-leftbar-item">Reports</div>
-          </div>
+      <div
+        className={
+          IS_MOBILE
+            ? `app-leftbar-mobile ${
+                isLeftBarOpen ? "leftbar-show" : "leftbar-hidden"
+              }`
+            : "app-navigation-leftbar"
+        }
+      >
+        <div className="app-leftbar-list">
+          {Object.keys(NAVIGATION_ROUTE_PATHS).map((key) => {
+            const { name, path } = NAVIGATION_ROUTE_PATHS[key];
+            return (
+              <div
+                key={path}
+                className="app-leftbar-item"
+                onClick={() => {
+                  setIsLeftBarOpen((value) => {
+                    return !value;
+                  });
+                  navigate(path);
+                }}
+              >
+                {name}
+              </div>
+            );
+          })}
         </div>
-      ) : (
-        <div className="app-navigation-leftbar">
-          <div className="app-leftbar-list">
-            <div className="app-leftbar-item">Registration Form</div>
-            <div className="app-leftbar-item">Admin Dashboard</div>
-            <div className="app-leftbar-item">Reports</div>
-          </div>
-        </div>
-      )}
+      </div>
       <div
         className={`app-navigation-page-container-${IS_MOBILE ? "mobile" : ""}`}
       >
-        This is the Page
+        <AppRoutes />
       </div>
     </div>
   );

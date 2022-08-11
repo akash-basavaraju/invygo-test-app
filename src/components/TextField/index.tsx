@@ -1,25 +1,32 @@
 import "./TextField.css";
 
-interface ITextFieldProps {
+interface ITextFieldProps<T> {
   label: string;
   placeholder: string;
-  value?: string;
-  onChange: (value: string) => void;
+  value?: T;
+  onChange: (value: T) => void;
+  numberOnly?: boolean;
 }
 
-export default function TextField(props: ITextFieldProps) {
-  const { label, placeholder, value = "", onChange } = props;
+export default function TextField<T>(props: ITextFieldProps<T>) {
+  const {
+    label,
+    placeholder,
+    value = "",
+    onChange,
+    numberOnly = false,
+  } = props;
 
   return (
     <div className="text-field-container">
       <div className="text-field-label">{label}:</div>
       <input
-        type="text"
+        type={numberOnly ? "number" : "text"}
         className="text-field-input"
-        value={value}
+        value={`${value}`}
         placeholder={placeholder}
         onChange={(event) => {
-          onChange(event.target.value);
+          onChange(event.target.value as unknown as T);
         }}
       />
     </div>

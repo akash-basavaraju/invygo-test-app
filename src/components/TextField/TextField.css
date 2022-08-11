@@ -8,12 +8,12 @@
 }
 
 .text-field-label {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 
 .text-field-input {
   border: 1px solid gray;
   border-radius: 5px;
   padding: 8px;
-  width: 250px;
+  width: 350px;
 }

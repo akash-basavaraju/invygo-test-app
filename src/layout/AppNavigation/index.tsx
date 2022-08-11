@@ -58,7 +58,7 @@ export default function AppNavigation() {
         </div>
       </div>
       <div
-        className={`app-navigation-page-container-${IS_MOBILE ? "mobile" : ""}`}
+        className={`app-navigation-page-container${IS_MOBILE ? "-mobile" : ""}`}
       >
         <AppRoutes />
       </div>

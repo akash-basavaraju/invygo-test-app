@@ -8,10 +8,11 @@ body {
 
 .app-navigation-container {
   display: grid;
-  grid-template-rows: 70px auto;
-  grid-template-columns: 200px auto;
+  grid-template-rows: 70px;
+  grid-template-columns: 200px;
   grid-gap: 0;
   width: 100%;
+  max-height: 100vh;
   min-height: 100vh;
 }
 
@@ -75,6 +76,7 @@ body {
 .app-navigation-page-container {
   grid-column: 2;
   grid-row: 2;
+  overflow: auto;
 }
 
 .app-navigation-page-container-mobile {

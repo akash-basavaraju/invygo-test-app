@@ -6,6 +6,7 @@ interface IRegistrationType {
   locality: string;
   noOfGuests: number;
   address: string;
+  [key: string]: string | number;
 }
 
 export default IRegistrationType;

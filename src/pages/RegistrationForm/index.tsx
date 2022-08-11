@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 import { useState } from "react";
-import DropdownField from "../../components/Dropdown Field";
+import DropdownField from "../../components/DropdownField";
 import TextField from "../../components/TextField";
 import APIService from "../../services/APIService";
 import { ProfessionOptions } from "../../utils/AppConstants";

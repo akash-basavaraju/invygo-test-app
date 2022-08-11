@@ -1,0 +1,17 @@
+.reports-container {
+  padding: 20px;
+  margin: 20px;
+}
+
+.reports-header {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.reports-charts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,14 @@
+.barchart-container {
+  margin: 20px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.barchart-graph {
+}
+
+.barchart-title {
+  text-align: center;
+}

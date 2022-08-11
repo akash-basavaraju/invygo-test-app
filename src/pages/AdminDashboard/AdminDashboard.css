@@ -1,0 +1,102 @@
+.dashboard-container {
+  padding: 20px;
+}
+
+.dashboard-searchbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.dashboard-searchlabel {
+  margin-right: 20px;
+}
+
+.dashboard-search-input {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 8px;
+  width: 350px;
+  font-size: 20px;
+}
+
+.dashboard-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.dashboard-card {
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: white;
+  margin: 20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dashboard-card-name {
+  font-size: 16px;
+}
+
+.dashboard-card-locality {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 40%;
+  height: 40vh;
+  margin: 120px 400px;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid lightblue;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  /* transition: visibility 300ms ease-in-out; */
+  text-align: center;
+}
+
+.modal-show {
+  visibility: visible;
+}
+
+.modal-hidden {
+  visibility: hidden;
+}
+
+.modal-header {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-values {
+  display: flex;
+  margin: 10px;
+}
+
+.modal-key {
+  font-weight: 600;
+  margin-right: 20px;
+}
+.modal-value {
+}
+
+.modal-close {
+  margin-top: 20px;
+  border: none;
+  background: green;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}

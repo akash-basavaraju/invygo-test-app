@@ -8,6 +8,7 @@ export default function AdminDashboard() {
   const [fetchedData, setFetchedData] = useState<IRegistrationType[]>();
   const [searchText, setSearchText] = useState<string>();
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectedObject, setSelectedObject] = useState<IRegistrationType>();
 
   useEffect(() => {
     const getData = async () => {
@@ -38,27 +39,63 @@ export default function AdminDashboard() {
     <div className="dashboard-container">
       <div className="dashboard-searchbar">
         <div className="dashboard-searchlabel">Search:</div>
-        <div className="dashboard-search-input">
+        <div className="dashboard-search-input-container">
           <input
+            className="dashboard-search-input"
             value={searchText}
+            placeholder="Search Here..."
             onChange={(event) => {
               setSearchText(event.target.value);
             }}
           />
         </div>
       </div>
-      <div className="dashboard-cards-container">
-        <div className="dashboard-cards">
-          {filteredData?.map((data) => {
-            const { name, locality } = data;
+      <div className="dashboard-cards">
+        {filteredData?.map((data) => {
+          const { name, locality } = data;
 
-            return (
-              <div className="dashboard-card">
-                <div className="dashboard-card-name">{name}</div>
-                <div className="dashboard-card-locality">{locality}</div>
-              </div>
-            );
-          })}
+          return (
+            <div
+              className="dashboard-card"
+              onClick={() => {
+                setSelectedObject(data);
+                setIsModalOpen(true);
+              }}
+            >
+              <div className="dashboard-card-name">{name}</div>
+              <div className="dashboard-card-locality">{locality}</div>
+            </div>
+          );
+        })}
+      </div>
+      <div
+        className={`modal-container ${
+          isModalOpen ? "modal-show" : "modal-hidden"
+        }`}
+      >
+        <div className="modal-header">Registration Details</div>
+        <div className="modal-details">
+          {selectedObject &&
+            Object.keys(selectedObject).map((key) => {
+              return (
+                <div className="modal-values">
+                  <div className="modal-key">{key}:</div>
+                  <div className="modal-value">
+                    {selectedObject && selectedObject[key]}
+                  </div>
+                </div>
+              );
+            })}
+        </div>
+        <div>
+          <button
+            className="modal-close"
+            onClick={() => {
+              setIsModalOpen(false);
+            }}
+          >
+            Close
+          </button>
         </div>
       </div>
     </div>

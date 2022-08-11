@@ -7,3 +7,11 @@ export const NAVIGATION_ROUTE_PATHS: NavigationRoutePathTypes = {
   admindash: { path: "/admindashboard", name: "Admin Dashboard" },
   reports: { path: "/reports", name: "Reports" },
 };
+
+export const ProfessionOptions = [
+  "Business Man",
+  "Lawyer",
+  "Doctor",
+  "Engineer",
+  "Student",
+];

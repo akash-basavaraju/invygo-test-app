@@ -10,6 +10,7 @@ export default function AdminDashboard() {
   const [searchText, setSearchText] = useState<string>();
   const deferredSearchText = useDeferredValue(searchText);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const deferedIsModelOpen = useDeferredValue(isModalOpen);
   const [selectedObject, setSelectedObject] = useState<IRegistrationType>();
 
   useEffect(() => {
@@ -72,7 +73,7 @@ export default function AdminDashboard() {
       </div>
       <div
         className={`modal-container ${
-          isModalOpen ? "modal-show" : "modal-hidden"
+          deferedIsModelOpen ? "modal-show" : "modal-hidden"
         }`}
       >
         <div className={`modal-contents`}>

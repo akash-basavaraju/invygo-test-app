@@ -26,13 +26,31 @@ export default function Reports() {
       <div className="reports-header">Reports</div>
       <div className="reports-charts">
         <BarChartRenderer
-          title="Number of People Age Range"
+          title="Number of People in Age Range"
+          chartData={reportsData.ageCompare}
+          barKeysColors={[{ key: "noOfPeople", color: "red" }]}
+          compareKey="age"
+        />
+        <BarChartRenderer
+          title="Number of People by Locality"
+          chartData={reportsData.localityCompare}
+          barKeysColors={[{ key: "noOfPeople", color: "blue" }]}
+          compareKey="locality"
+        />
+        <BarChartRenderer
+          title="Number of People by Guests Count"
+          chartData={reportsData.guestsCompare}
+          barKeysColors={[{ key: "noOfPeople", color: "green" }]}
+          compareKey="group"
+        />
+        <BarChartRenderer
+          title="Number of People by Profession"
           chartData={[
-            { age: 20, noOfPeople: 40 },
-            { age: 22, noOfPeople: 80 },
+            { profession: "Students", noOfPeople: 40 },
+            { profession: "Professionals", noOfPeople: 80 },
           ]}
-          barKeysColors={[{ key: "age", color: "red" }]}
-          compareKey="noOfPeople"
+          barKeysColors={[{ key: "noOfPeople", color: "purple" }]}
+          compareKey="profession"
         />
       </div>
     </div>

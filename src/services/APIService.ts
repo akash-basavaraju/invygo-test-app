@@ -36,6 +36,19 @@ class APIService {
             { age: 20, noOfPeople: 40 },
             { age: 22, noOfPeople: 80 },
           ],
+          localityCompare: [
+            { locality: "bangalore", noOfPeople: 40 },
+            { locality: "chennai", noOfPeople: 80 },
+          ],
+          guestsCompare: [
+            { group: "0", noOfPeople: 40 },
+            { group: "1", noOfPeople: 80 },
+            { group: "2", noOfPeople: 100 },
+          ],
+          professionCompare: [
+            { profession: "Students", noOfPeople: 40 },
+            { profession: "Professionals", noOfPeople: 80 },
+          ],
         });
       }, 2000);
     });

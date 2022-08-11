@@ -1,0 +1,83 @@
+body {
+  font-family: sans-serif;
+  box-sizing: border-box;
+  background: aliceblue;
+  margin: 0;
+  color: #353535;
+}
+
+.app-navigation-container {
+  display: grid;
+  grid-template-rows: 70px auto;
+  grid-template-columns: 200px auto;
+  grid-gap: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app-navigation-header {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  padding: 20px;
+  font-size: 24px;
+  background: #83bef2;
+  box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+  color: white;
+}
+
+.app-header-mobile {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.app-header-toggle {
+  padding: 0px 7px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: #353535;
+  border: 1px solid gainsboro;
+  cursor: pointer;
+}
+
+.app-navigation-leftbar {
+  grid-column: 1;
+  grid-row: 2;
+  padding: 10px;
+  background: #edf4f9;
+  border-right: 1px solid gainsboro;
+}
+
+.app-leftbar-mobile {
+  position: fixed;
+  top: 70px;
+  left: 0px;
+  height: 100vh;
+  padding: 10px;
+  background: #edf4f9;
+  border-right: 1px solid gainsboro;
+  transition: all 300ms ease;
+}
+
+.leftbar-show {
+  transform: translateX(0px);
+}
+
+.leftbar-hidden {
+  transform: translateX(-188px);
+}
+
+.app-leftbar-item {
+  margin: 20px;
+  cursor: pointer;
+}
+
+.app-navigation-page-container {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.app-navigation-page-container-mobile {
+  grid-column: 1 / 3;
+  grid-row: 2;
+}

@@ -1,4 +1,5 @@
 import IRegistrationType from "../types/IRegistrationType";
+import IReportsDataType from "../types/IReportsDataType";
 
 class APIService {
   putRegistration(data: IRegistrationType) {
@@ -27,7 +28,18 @@ class APIService {
     });
   }
 
-  getRegistrationReport() {}
+  getRegistrationReport(): Promise<IReportsDataType> {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve({
+          ageCompare: [
+            { age: 20, noOfPeople: 40 },
+            { age: 22, noOfPeople: 80 },
+          ],
+        });
+      }, 2000);
+    });
+  }
 }
 
 export default new APIService();

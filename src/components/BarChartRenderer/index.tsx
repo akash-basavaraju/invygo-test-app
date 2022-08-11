@@ -10,6 +10,7 @@ interface IBarGraphRendererProps {
 
 export default function BarChartRenderer(props: IBarGraphRendererProps) {
   const { chartData, barKeysColors, compareKey, title } = props;
+
   return (
     <div className="barchart-container">
       <div className="barchart-graph">

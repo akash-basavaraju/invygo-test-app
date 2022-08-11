@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Deployed At
+
+This App is deployed [here](https://bejewelled-lollipop-f18560.netlify.app).
+
 ## To Run the App
 
 In the project directory, you can run:

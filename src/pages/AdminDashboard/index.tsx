@@ -73,29 +73,31 @@ export default function AdminDashboard() {
           isModalOpen ? "modal-show" : "modal-hidden"
         }`}
       >
-        <div className="modal-header">Registration Details</div>
-        <div className="modal-details">
-          {selectedObject &&
-            Object.keys(selectedObject).map((key) => {
-              return (
-                <div className="modal-values">
-                  <div className="modal-key">{key}:</div>
-                  <div className="modal-value">
-                    {selectedObject && selectedObject[key]}
+        <div className={`modal-contents`}>
+          <div className="modal-header">Registration Details</div>
+          <div className="modal-details">
+            {selectedObject &&
+              Object.keys(selectedObject).map((key) => {
+                return (
+                  <div className="modal-values">
+                    <div className="modal-key">{key}:</div>
+                    <div className="modal-value">
+                      {selectedObject && selectedObject[key]}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-        </div>
-        <div>
-          <button
-            className="modal-close"
-            onClick={() => {
-              setIsModalOpen(false);
-            }}
-          >
-            Close
-          </button>
+                );
+              })}
+          </div>
+          <div>
+            <button
+              className="modal-close"
+              onClick={() => {
+                setIsModalOpen(false);
+              }}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>

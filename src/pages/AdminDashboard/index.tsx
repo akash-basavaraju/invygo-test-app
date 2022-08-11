@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import Loader from "../../components/Loader";
 import APIService from "../../services/APIService";
 import IRegistrationType from "../../types/IRegistrationType";
+import casmelToPascal from "../../utils/Utils";
 import "./AdminDashboard.css";
 
 export default function AdminDashboard() {
@@ -80,7 +81,7 @@ export default function AdminDashboard() {
               Object.keys(selectedObject).map((key) => {
                 return (
                   <div className="modal-values">
-                    <div className="modal-key">{key}:</div>
+                    <div className="modal-key">{casmelToPascal(key)}:</div>
                     <div className="modal-value">
                       {selectedObject && selectedObject[key]}
                     </div>

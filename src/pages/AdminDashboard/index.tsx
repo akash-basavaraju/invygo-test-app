@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useDeferredValue, useEffect, useMemo, useState } from "react";
 import Loader from "../../components/Loader";
 import APIService from "../../services/APIService";
 import IRegistrationType from "../../types/IRegistrationType";
@@ -8,6 +8,7 @@ import "./AdminDashboard.css";
 export default function AdminDashboard() {
   const [fetchedData, setFetchedData] = useState<IRegistrationType[]>();
   const [searchText, setSearchText] = useState<string>();
+  const deferredSearchText = useDeferredValue(searchText);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [selectedObject, setSelectedObject] = useState<IRegistrationType>();
 
@@ -21,16 +22,16 @@ export default function AdminDashboard() {
   }, []);
 
   const filteredData = useMemo(() => {
-    if (searchText && fetchedData) {
+    if (deferredSearchText && fetchedData) {
       return fetchedData.filter((data) => {
         return (
-          data.name.toLowerCase().includes(searchText.toLowerCase()) ||
-          data.locality.toLowerCase().includes(searchText.toLowerCase())
+          data.name.toLowerCase().includes(deferredSearchText.toLowerCase()) ||
+          data.locality.toLowerCase().includes(deferredSearchText.toLowerCase())
         );
       });
     }
     return fetchedData;
-  }, [fetchedData, searchText]);
+  }, [fetchedData, deferredSearchText]);
 
   if (!fetchedData) {
     return <Loader />;

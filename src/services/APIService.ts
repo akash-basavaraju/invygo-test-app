@@ -12,8 +12,8 @@ class APIService {
   getRegistrations(): Promise<IRegistrationType[]> {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve([
-          {
+        resolve(
+          new Array(20).fill({
             name: "Akash Basavaraju",
             age: 27,
             dob: "12/10/1995",
@@ -21,53 +21,8 @@ class APIService {
             locality: "Bangalore",
             noOfGuests: 1,
             address: "bangalore",
-          },
-          {
-            name: "Akash Basavaraju",
-            age: 27,
-            dob: "12/10/1995",
-            profession: "Engineer",
-            locality: "Bangalore",
-            noOfGuests: 1,
-            address: "bangalore",
-          },
-          {
-            name: "Akash Basavaraju",
-            age: 27,
-            dob: "12/10/1995",
-            profession: "Engineer",
-            locality: "Bangalore",
-            noOfGuests: 1,
-            address: "bangalore",
-          },
-          {
-            name: "Akash Basavaraju",
-            age: 27,
-            dob: "12/10/1995",
-            profession: "Engineer",
-            locality: "Bangalore",
-            noOfGuests: 1,
-            address: "bangalore",
-          },
-          {
-            name: "Akash Basavaraju",
-            age: 27,
-            dob: "12/10/1995",
-            profession: "Engineer",
-            locality: "Bangalore",
-            noOfGuests: 1,
-            address: "bangalore",
-          },
-          {
-            name: "Akash Basavaraju",
-            age: 27,
-            dob: "12/10/1995",
-            profession: "Engineer",
-            locality: "Bangalore",
-            noOfGuests: 1,
-            address: "bangalore",
-          },
-        ]);
+          })
+        );
       }, 2000);
     });
   }

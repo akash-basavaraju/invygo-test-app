@@ -12,7 +12,7 @@ export default function BarChartRenderer(props: IBarGraphRendererProps) {
   const { chartData, barKeysColors, compareKey, title } = props;
 
   return (
-    <div className="barchart-container">
+    <div className="barchart-container" data-testid="barchart-card">
       <div className="barchart-graph">
         <BarChart width={350} height={150} data={chartData}>
           <XAxis dataKey={compareKey} />

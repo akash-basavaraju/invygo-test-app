@@ -23,6 +23,7 @@ export default function DropdownField(props: IDropdownFieldProps) {
           }
         }}
         className="dropdown-select"
+        data-testid={`dropdown-${label.toLowerCase()}`}
       >
         <option value={placeholder}>{placeholder}</option>
         {options.map((option) => {

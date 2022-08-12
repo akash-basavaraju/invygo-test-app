@@ -64,6 +64,7 @@ export default function AdminDashboard() {
                 setSelectedObject(data);
                 setIsModalOpen(true);
               }}
+              data-testid="dashboard-card"
             >
               <div className="dashboard-card-name">{name}</div>
               <div className="dashboard-card-locality">{locality}</div>
@@ -75,6 +76,7 @@ export default function AdminDashboard() {
         className={`modal-container ${
           deferedIsModelOpen ? "modal-show" : "modal-hidden"
         }`}
+        data-testid="details-modal"
       >
         <div className={`modal-contents`}>
           <div className="modal-header">Registration Details</div>

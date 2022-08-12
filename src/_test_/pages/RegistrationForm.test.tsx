@@ -52,7 +52,7 @@ describe("Registration Form Page checks", () => {
     expect(addressField).toBeTruthy();
   });
 
-  test("checks Registration Truthy Submit", async () => {
+  test("checks Registration Form Truthy Submit", async () => {
     render(<RegistrationForm />);
 
     const nameField = await screen.findByPlaceholderText("Enter Name");
@@ -87,5 +87,100 @@ describe("Registration Form Page checks", () => {
     await waitFor(() => {
       expect(APIService.putRegistration).toBeCalled();
     });
+  });
+
+  test("checks Registration Form Date Error", async () => {
+    render(<RegistrationForm />);
+
+    const nameField = await screen.findByPlaceholderText("Enter Name");
+    userEvent.type(nameField, "Akash");
+
+    const ageField = await screen.findByPlaceholderText("Enter Age in years");
+    userEvent.type(ageField, "27");
+
+    const dobField = await screen.findByPlaceholderText(
+      "Date of Birth in DD/MM/YYYY format"
+    );
+    userEvent.type(dobField, "42/10/1995");
+
+    const professionField = await screen.findByTestId("dropdown-profession");
+    userEvent.selectOptions(professionField, "Engineer");
+    expect(professionField.querySelectorAll("option")[4].selected).toBeTruthy();
+
+    const localityField = await screen.findByPlaceholderText("Enter Locality");
+    userEvent.type(localityField, "Bangalore");
+
+    const guestsField = await screen.findByPlaceholderText(
+      "Enter Number of Guests"
+    );
+    userEvent.type(guestsField, "2");
+
+    const addressField = await screen.findByPlaceholderText("Enter Address");
+    userEvent.type(addressField, "bangalore");
+
+    const submitButton = await screen.findByText("Submit");
+    submitButton.click();
+
+    const errorDiv = await screen.findByText("Enter valid date.");
+    expect(errorDiv).toBeTruthy();
+  });
+
+  test("checks Registration Form No of Guests Error", async () => {
+    render(<RegistrationForm />);
+
+    const nameField = await screen.findByPlaceholderText("Enter Name");
+    userEvent.type(nameField, "Akash");
+
+    const ageField = await screen.findByPlaceholderText("Enter Age in years");
+    userEvent.type(ageField, "27");
+
+    const dobField = await screen.findByPlaceholderText(
+      "Date of Birth in DD/MM/YYYY format"
+    );
+    userEvent.type(dobField, "12/10/1995");
+
+    const professionField = await screen.findByTestId("dropdown-profession");
+    userEvent.selectOptions(professionField, "Engineer");
+    expect(professionField.querySelectorAll("option")[4].selected).toBeTruthy();
+
+    const localityField = await screen.findByPlaceholderText("Enter Locality");
+    userEvent.type(localityField, "Bangalore");
+
+    const guestsField = await screen.findByPlaceholderText(
+      "Enter Number of Guests"
+    );
+    userEvent.type(guestsField, "3");
+
+    const addressField = await screen.findByPlaceholderText("Enter Address");
+    userEvent.type(addressField, "bangalore");
+
+    const submitButton = await screen.findByText("Submit");
+    submitButton.click();
+
+    const errorDiv = await screen.findByText(
+      "Only 0 to 2 guest(s) are allowed."
+    );
+    expect(errorDiv).toBeTruthy();
+  });
+
+  test("checks Registration Form Field Skip Error", async () => {
+    render(<RegistrationForm />);
+
+    const nameField = await screen.findByPlaceholderText("Enter Name");
+    userEvent.type(nameField, "Akash");
+
+    const ageField = await screen.findByPlaceholderText("Enter Age in years");
+    userEvent.type(ageField, "27");
+
+    const dobField = await screen.findByPlaceholderText(
+      "Date of Birth in DD/MM/YYYY format"
+    );
+    userEvent.type(dobField, "12/10/1995");
+
+    const submitButton = await screen.findByText("Submit");
+    submitButton.click();
+
+    const errorDiv = await screen.findByText("Please enter all the values");
+    expect(errorDiv).toBeTruthy();
   });
 });
